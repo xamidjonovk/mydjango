@@ -1,3 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import User
+def table(request):
+    model=User.objects.all()
+    ctx={
+        "model":model
+    }
+    return render(request,"index.html", ctx)
